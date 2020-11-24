@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Random Color Generator</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h2>Random Color Generator</h2>
+        <div class="buttons">
+          <label>
+            <input type="checkbox" id="hash" />
+            <span class="slider"></span>
+          </label>
+          <button id="generate-btn">Generate Color</button>
+        </div>
+      </nav>
+    </header>
+    <section class="container">
+      <div class="color">
+        <input type="text" value="#ggg" />
+      </div>
+      <div class="color">
+        <p>#fff</p>
+      </div>
+      <div class="color">
+        <p>#fff</p>
+      </div>
+      <div class="color">
+        <p>#fff</p>
+      </div>
+      <div class="color">
+        <p>#fff</p>
+      </div>
+      <div class="color">
+        <p>#fff</p>
+      </div>
+      <div class="color">
+        <p>#fff</p>
+      </div>
+      <div class="color">
+        <p>#fff</p>
+      </div>
+      <div class="color">
+        <p>#fff</p>
+      </div>
+      <div class="color">
+        <p>#fff</p>
+      </div>
+      <div class="color">
+        <p>#fff</p>
+      </div>
+      <div class="color">
+        <p>#fff</p>
+      </div>
+      <div class="color">
+        <p>#fff</p>
+      </div>
+      <div class="color">
+        <p>#fff</p>
+      </div>
+      <div class="color">
+        <p>#fff</p>
+      </div>
+      <div class="color">
+        <p>#fff</p>
+      </div>
+      <div class="color">
+        <p>#fff</p>
+      </div>
+      <div class="color">
+        <p>#fff</p>
+      </div>
+      <div class="color">
+        <p>#fff</p>
+      </div>
+      <div class="color">
+        <p>#fff</p>
+      </div>
+    </section>
+  </body>
+  <script>
+    const generate = document.getElementById("generate-btn");
+    generate.addEventListener("click", displayColor);
+    function displayColor() {
+      let content = "";
+      for (let i = 0; i < 20; i++) {
+        const color = randomColor();
+        content += `<div class="color" style="background-color: ${color}">
+                <div class="tooltip">
+                    <span class="tooltiptext id="myTooltip">Copy to clipboard</span>
+                    </div>
+                <input onclick="copy(event)" value="${color}" />
+            </div>`;
+      }
+      document.querySelector(".container").innerHTML = content;
+    }
+    function randomColor() {
+      const array = [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+      ];
+      let color = "#";
+      for (let i = 0; i < 6; i++) {
+        const number = Math.floor(Math.random() * 15);
+        color += array[number];
+      }
+      return color;
+    }
+
+    function copy(event) {
+      console.log(event.target.innerHTML);
+      const copyText = event.target;
+      copyText.select();
+      copyText.setSelectionRange(0, 99999);
+      document.execCommand("copy");
+    }
+    displayColor();
+  </script>
+</html>
