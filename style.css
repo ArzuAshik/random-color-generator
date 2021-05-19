@@ -27,6 +27,7 @@ header nav label {
   background: gray;
   border-radius: 20px;
   position: relative;
+  display: none;
 }
 header .slider {
   position: absolute;
@@ -85,6 +86,7 @@ header nav {
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 .color {
   height: 180px;
